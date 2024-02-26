@@ -1,0 +1,17 @@
+1. #start vault service
+vault service run [--port <port>]
+
+// Coming soon
+vault service run --background
+vault stop/list/restart services
+
+2. #use command line tool
+vault init --store // set up store and cipher
+vault store <id> [ --secret <sensitive value> | --secret-file <path to file containing secret> | --stdin <from stdin stream> ] // add id and token to vault
+vault delete <id> // delete entry from vault
+vault list // list vault entries TODO: add [--scope <namespace>] sometime later
+vault peek <id> // peek the value of an entry in vault
+vault peel <id> // reveal the decrypted value of a token ID in vault
+
+// Coming soon
+vault config // editing config
