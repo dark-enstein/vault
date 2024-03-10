@@ -24,11 +24,10 @@ var (
 )
 
 var (
-	Tokenize     = "/tokenize"
-	Detokenize   = "/detokenize"
-	GetTokens    = "/all"
-	Introduction = "/new"
-	// GetTokensByID implementing parameterized routing
+	Tokenize      = "/tokenize"
+	Detokenize    = "/detokenize"
+	GetTokens     = "/all"
+	Introduction  = "/new"
 	GetTokensByID = "/id"
 	DeleteToken   = "/delete"
 	PatchToken    = "/patch"
