@@ -24,11 +24,6 @@ jobs:
         run: make test || true #effectively disabling any impact from tests. I'm still working on improving the test suite: https://github.com/dark-enstein/vault/issues/6
 
   tag:
-    runs-on: ubuntu-22.04
-    permissions:
-      contents: write
-    steps:
-      - name: Tag
-        uses: ./.github/workflows/tag.yaml
-        secrets:
-          token: ${{ secrets.access-token }}
+    uses: ./.github/workflows/tag.yaml
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
