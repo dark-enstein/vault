@@ -7,9 +7,6 @@ on:
         type: string
         required: true
         description: "Link to the release notes"
-    secrets:
-      GITHUB_TOKEN:
-        required: true
 
 jobs:
   build:
@@ -30,5 +27,5 @@ jobs:
   tag:
     uses: ./.github/workflows/tag.yaml
     secrets:
-      token: ${{ secrets.GITHUB_TOKEN }}
+      token: ${{ secrets.TOKEN }}
       bump_type: "major"

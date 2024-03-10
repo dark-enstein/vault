@@ -26,4 +26,4 @@ jobs:
   tag:
     uses: ./.github/workflows/tag.yaml
     secrets:
-      token: ${{ secrets.GITHUB_TOKEN }}
+      token: ${{ secrets.TOKEN }}
