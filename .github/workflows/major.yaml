@@ -1,0 +1,39 @@
+# example 1: on push to master
+name: Bump version
+on:
+  workflow_dispatch:
+    inputs:
+      release_notes:
+        type: string
+        required: true
+        description: "Link to the release notes"
+    secrets:
+      GITHUB_TOKEN:
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4.11
+        with:
+          fetch-depth: '0'
+
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.64.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
+
+  tag:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    steps:
+      - name: Tag
+        uses: ./.github/workflows/tag.yaml
+        secrets:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          bump_type: "major"
