@@ -79,9 +79,9 @@ func NewManager(ctx context.Context, logger *vlog.Logger, opts ...Options) *Mana
 // GenerateCipher generates a new AES cipher and Initialization Vector pais, and persists it to disk
 func (m *Manager) GenerateCipher() error {
 	// generate 32 digit key
-	m.cipher[EnvKeyAESCipher] = genAlphaNumericString(32)
+	m.cipher[EnvKeyAESCipher] = GenAlphaNumericString(32)
 	// generate 16 digit initialization vector
-	m.cipher[EnvKeyInitializationVector] = genAlphaNumericString(16)
+	m.cipher[EnvKeyInitializationVector] = GenAlphaNumericString(16)
 	// write to file
 	return godotenv.Write(m.cipher, m.cipherLoc)
 }
@@ -207,8 +207,8 @@ func keysIsPresent(ctx context.Context, key string, tempStore map[string]bool, s
 // Tokenize manages the tokenization, and stores generated tokens in an internal store, for easy retrieval
 func (m *Manager) Tokenize(ctx context.Context, key, val string) (string, error) {
 
-	// tokenize
-	token, err := tokenize(val, m.cipher)
+	// Tokenize
+	token, err := Tokenize(val, m.cipher)
 	if err != nil {
 		m.log.Logger().Error().Msgf("error occurred while generating token: %s\n", err.Error())
 		return "", err
@@ -239,8 +239,8 @@ func (m *Manager) Detokenize(ctx context.Context, key, token string) (bool, stri
 		return false, "", fmt.Errorf("provided token does not match stored token. provided token: %s\n", store.Redact(token))
 	}
 
-	// detokenize
-	decryptedStr, err := detokenize(token, m.cipher)
+	// Detokenize
+	decryptedStr, err := Detokenize(token, m.cipher)
 	if err != nil {
 		m.log.Logger().Error().Msgf("error occurred while decrypting token: %s\n", err.Error())
 		return false, "", err
@@ -259,8 +259,8 @@ const (
 
 var src = rand.NewSource(time.Now().UnixNano())
 
-// genAlphaNumericString mimics strings.Builder with package unsafe. According to the author it is one of the pastest implementation of strings builder.
-func genAlphaNumericString(n int) string {
+// GenAlphaNumericString mimics strings.Builder with package unsafe. According to the author it is one of the pastest implementation of strings builder.
+func GenAlphaNumericString(n int) string {
 	b := make([]byte, n)
 	// A src.Int63() generates 63 random bits, enough for letterIdxMax characters!
 	for i, cache, remain := n-1, src.Int63(), letterIdxMax; i >= 0; {
@@ -296,8 +296,8 @@ func (m *Manager) DeleteTokenByID(ctx context.Context, id string) (bool, error) 
 func (m *Manager) PatchTokenByID(ctx context.Context, key, val string) (string, error) {
 	log := m.log.Logger()
 
-	// tokenize
-	token, err := tokenize(val, m.cipher)
+	// Tokenize
+	token, err := Tokenize(val, m.cipher)
 	if err != nil {
 		m.log.Logger().Error().Msgf("error occurred while generating token: %s\n", err.Error())
 		return "", err
