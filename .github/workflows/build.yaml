@@ -23,7 +23,9 @@ jobs:
           go-version: '1.21'
 
       - name: Test
-        run: make test || true #effectively disabling any impact from tests. I'm still working on improving the test suite: https://github.com/dark-enstein/vault/issues/6
+        run: |
+          which go
+          make test || true #effectively disabling any impact from tests. I'm still working on improving the test suite: https://github.com/dark-enstein/vault/issues/6
 
   tag:
     if: github.ref == 'refs/heads/master'
