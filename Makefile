@@ -4,16 +4,17 @@ all: build
 CMD_DIR="vaught"
 PATH="/usr/local/bin"
 APP_NAME="vault"
+GO=$(shell which go)
 
 build:
-	@go build -o $(APP_NAME) $(CMD_DIR)/main.go
+	@$(GO) build -o $(APP_NAME) $(CMD_DIR)/main.go
 
 sudo:
-	@go build -o $(APP_NAME) $(CMD_DIR)/main.go
+	@$(GO) build -o $(APP_NAME) $(CMD_DIR)/main.go
 	@sudo mv vault $(PATH)
 
 test:
-	@go test ./... -v
+	@$(GO) test ./... -v
 
 clean-path:
 	@[ -f $(PATH)/$(APP_NAME) ] && ( rm $(PATH)/$(APP_NAME) ) || printf ""

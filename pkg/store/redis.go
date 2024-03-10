@@ -3,7 +3,7 @@ package store
 import (
 	"context"
 	"fmt"
-	"github.com/dark-enstein/vault/internal/vlog"
+	"github.com/dark-enstein/vault/pkg/vlog"
 	"github.com/redis/go-redis/v9"
 	"github.com/rs/zerolog/log"
 	"sync"

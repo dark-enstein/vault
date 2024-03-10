@@ -3,9 +3,9 @@ package service
 import (
 	"context"
 	"fmt"
-	"github.com/dark-enstein/vault/internal/store"
 	"github.com/dark-enstein/vault/internal/tokenize"
-	"github.com/dark-enstein/vault/internal/vlog"
+	"github.com/dark-enstein/vault/pkg/store"
+	"github.com/dark-enstein/vault/pkg/vlog"
 	"github.com/pkg/errors"
 	"net/http"
 	"time"

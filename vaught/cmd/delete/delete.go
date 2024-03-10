@@ -6,7 +6,7 @@ package del
 import (
 	"context"
 	"fmt"
-	"github.com/dark-enstein/vault/internal/vlog"
+	"github.com/dark-enstein/vault/pkg/vlog"
 	"github.com/dark-enstein/vault/vaught/cmd/helper"
 	"github.com/pkg/errors"
 	"github.com/rs/zerolog/log"
