@@ -33,6 +33,6 @@ jobs:
     if: github.ref == 'refs/heads/master'
     permissions:
       contents: write
-    uses: ./.github/workflows/tag.yaml@master
+    uses: ./.github/workflows/tag.yaml
     secrets:
       token: ${{ secrets.TOKEN }}
