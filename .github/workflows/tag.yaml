@@ -12,8 +12,8 @@ on:
         required: true
 
 jobs:
-  if: github.ref == 'refs/heads/master'
   tag:
+    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-22.04
     permissions:
       contents: write
