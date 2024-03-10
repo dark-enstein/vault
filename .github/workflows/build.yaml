@@ -24,6 +24,7 @@ jobs:
         run: |
           which go
           uname -air
+          go test ./...
           make test #|| true #effectively disabling any impact from tests. I'm still working on improving the test suite: https://github.com/dark-enstein/vault/issues/6
 
   tag:
