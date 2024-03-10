@@ -24,7 +24,7 @@ func (t *Token) String() string {
 	return t.token
 }
 
-func tokenize(s string, cypher map[string]string) (*Token, error) {
+func Tokenize(s string, cypher map[string]string) (*Token, error) {
 	// resolve aes cipher and initialization vector
 	var aesKey, iv string
 	var ok bool
@@ -56,7 +56,7 @@ func tokenize(s string, cypher map[string]string) (*Token, error) {
 	return &Token{token: token}, nil
 }
 
-func detokenize(token string, cypher map[string]string) (string, error) {
+func Detokenize(token string, cypher map[string]string) (string, error) {
 	// resolve aes cipher and initialization vector
 	var aesKey, iv string
 	var ok bool
