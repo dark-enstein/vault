@@ -13,7 +13,7 @@ sudo:
 	@sudo mv vault $(PATH)
 
 test:
-	@go test ./...
+	@go test ./... -v
 
 clean-path:
 	@[ -f $(PATH)/$(APP_NAME) ] && ( rm $(PATH)/$(APP_NAME) ) || printf ""
