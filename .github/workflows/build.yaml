@@ -11,7 +11,9 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4.11
 
@@ -24,6 +26,8 @@ jobs:
         run: make test || true #effectively disabling any impact from tests. I'm still working on improving the test suite: https://github.com/dark-enstein/vault/issues/6
 
   tag:
+    permissions:
+      contents: write
     uses: ./.github/workflows/tag.yaml
     secrets:
       token: ${{ secrets.TOKEN }}
