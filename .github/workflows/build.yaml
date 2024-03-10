@@ -29,9 +29,10 @@ jobs:
           make test || true #effectively disabling any impact from tests. I'm still working on improving the test suite: https://github.com/dark-enstein/vault/issues/6
 
   tag:
+    needs: [build]
     if: github.ref == 'refs/heads/master'
     permissions:
       contents: write
-    uses: ./.github/workflows/tag.yaml
+    uses: ./.github/workflows/tag.yaml@master
     secrets:
       token: ${{ secrets.TOKEN }}
