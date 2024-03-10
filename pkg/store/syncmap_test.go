@@ -3,7 +3,7 @@ package store
 import (
 	"context"
 	"fmt"
-	"github.com/dark-enstein/vault/internal/vlog"
+	"github.com/dark-enstein/vault/pkg/vlog"
 	"testing"
 	"time"
 

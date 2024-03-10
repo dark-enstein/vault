@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/gob"
 	"fmt"
-	"github.com/dark-enstein/vault/internal/vlog"
+	"github.com/dark-enstein/vault/pkg/vlog"
 	"github.com/rs/zerolog/log"
 	"io"
 	"os"

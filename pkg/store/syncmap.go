@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/dark-enstein/vault/internal/vlog"
+	"github.com/dark-enstein/vault/pkg/vlog"
 	"sync"
 )
 

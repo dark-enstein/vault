@@ -8,21 +8,22 @@ on:
         type: string
         description: "Part of sem-var to bump"
     secrets:
-      GITHUB_TOKEN:
+      TOKEN:
         required: true
 
 jobs:
-  build:
+  tag:
+    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-22.04
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4.11
+      - uses: actions/checkout@v4
         with:
           fetch-depth: '0'
 
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@1.64.0
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TOKEN: ${{ secrets.TOKEN }}
           WITH_V: true

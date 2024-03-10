@@ -11,24 +11,27 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4.11
-
-      - name: Set up Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: '1.21'
-
-      - name: Test
-        run: make test || true #effectively disabling any impact from tests. I'm still working on improving the test suite: https://github.com/dark-enstein/vault/issues/6
-
-  tag:
     runs-on: ubuntu-22.04
     permissions:
       contents: write
     steps:
-      - name: Tag
-        uses: ./.github/workflows/tag.yaml
-        secrets:
-          token: ${{ secrets.access-token }}
+      - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
+
+      - name: Test
+        run: |
+          which go
+          uname -air
+          make test || true #effectively disabling any impact from tests. I'm still working on improving the test suite: https://github.com/dark-enstein/vault/issues/6
+
+  tag:
+    if: github.ref == 'refs/heads/master'
+    permissions:
+      contents: write
+    uses: ./.github/workflows/tag.yaml
+    secrets:
+      token: ${{ secrets.TOKEN }}

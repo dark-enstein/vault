@@ -6,8 +6,8 @@ package initer
 import (
 	"context"
 	"fmt"
-	"github.com/dark-enstein/vault/internal/store"
-	"github.com/dark-enstein/vault/internal/vlog"
+	"github.com/dark-enstein/vault/pkg/store"
+	"github.com/dark-enstein/vault/pkg/vlog"
 	"github.com/dark-enstein/vault/vaught/cmd/helper"
 	"github.com/mitchellh/go-homedir"
 	"github.com/rs/xid"

@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"encoding/gob"
-	"github.com/dark-enstein/vault/internal/vlog"
+	"github.com/dark-enstein/vault/pkg/vlog"
 	"github.com/dark-enstein/vault/service"
 	"github.com/spf13/pflag"
 )

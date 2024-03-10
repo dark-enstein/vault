@@ -1,6 +1,6 @@
 package tokenize
 
-import "github.com/dark-enstein/vault/internal/store"
+import "github.com/dark-enstein/vault/pkg/store"
 
 type Options func(*Manager)
 

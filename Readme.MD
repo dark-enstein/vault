@@ -1,6 +1,8 @@
 # Vault - Your Mini Secret Manager
 
-Welcome to **Vault**, the compact and versatile secret manager designed to securely manage your sensitive data such as secrets, tokens, and other critical information. Whether you're a developer needing to safeguard API keys or a system administrator managing access credentials, Vault has got you covered.
+Welcome to **Vault**, the compact and versatile secret manager designed to securely manage your sensitive data such as secrets, tokens, and other critical information. Whether you're a developer needing to safeguard API keys or a system administrator managing access credentials, Vault has got you covered .
+
+Access the GoDoc: **[Documentation](https://pkg.go.dev/github.com/dark-enstein/vault)**
 
 ## Key Features and Functionalities
 
@@ -58,4 +60,4 @@ For questions, suggestions, or contributions, please contact the project maintai
 
 For more details, documentation, or to view the source code, visit [Vault on GitHub](https://github.com/dark-enstein/vault). Check out related projects and join our community forum for support and discussions.
 
-Vault has evolved from [ls](https://github.com/dark-enstein/ls) with a focus on secure secret management. We're excited to see how you use Vault in your projects and infrastructure!
+Vault has evolved from [ls](https://github.com/dark-enstein/ls) so its independent.

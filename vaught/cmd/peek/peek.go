@@ -7,7 +7,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/dark-enstein/vault/internal/vlog"
+	"github.com/dark-enstein/vault/pkg/vlog"
 	"github.com/dark-enstein/vault/vaught/cmd/helper"
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
